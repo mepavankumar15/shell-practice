@@ -2,7 +2,7 @@
 
 NUMBER=$(sudo id -u)
 
-if [ $NUMBER -eq 0 ]; then
+if [ $NUMBER -ne 0 ]; then
     echo "it is not root bitch"
     exit 1
 else
