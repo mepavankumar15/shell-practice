@@ -7,4 +7,5 @@ VALIDATE(){
     fi
 }
 
+echo " Installing ...."
 VALIDATE $? nginx
