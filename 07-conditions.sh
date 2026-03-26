@@ -19,10 +19,11 @@ fi
 echo "enter the value"
 read STR
 
-if [ $STR -eq Suresh ]; then
+if [ $STR -eq 20 ]; then
     echo "He is Admin"
-elif [ $STR -eq Ramesh ]; then
+elif [ $STR -eq 30 ]; then
     echo "He is User"
 else
     echo "Not Allowed"
 fi
+
