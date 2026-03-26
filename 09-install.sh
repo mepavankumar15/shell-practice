@@ -3,7 +3,10 @@
 NUMBER=$(sudo id -u)
 
 if [ $NUMBER -eq 0 ]; then
-    dnf install nginx -y
-else
     echo "it is not root bitch"
+    exit 1
+else
+    echo "running the install"
+    dnf install nginx -y
+    
 fi
