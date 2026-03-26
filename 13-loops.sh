@@ -12,6 +12,7 @@ USERID=$(id -u)
 
 if [ $USERID -ne 0 ]; then
     echo "use this command in root user " | tee -a $LOG_FILE
+    exit 1
 fi
 
 VALIDATE() {
@@ -24,13 +25,12 @@ VALIDATE() {
 
 for package in $@
 do
-    dnf list installed $package &>> $LOG_FILE
+    dnf list installed $package &>>$LOG_FILE
     if [ $? -ne 0 ]; then
         echo "$package not installed , installing now"
-        dnf install $package -y $>> $LOG_FILE
+        dnf install $package -y &>>$LOG_FILE
         VALIDATE $? "$package installation"
     else
         echo "$package is installed already , skipping"
     fi
-
 done
