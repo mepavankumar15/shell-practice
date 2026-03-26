@@ -19,9 +19,9 @@ fi
 echo "enter the value"
 read STR
 
-if [ STR -eq "Suresh" ]; then
+if [ STR -eq Suresh ]; then
     echo "He is Admin"
-elif [ STR -eq "Ramesh" ]; then
+elif [ STR -eq Ramesh ]; then
     echo "He is User"
 else
     echo "Not Allowed"
