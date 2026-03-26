@@ -6,7 +6,7 @@ do
 done
 
 LOGS_FOLDER="/var/log/shell-script"
-LOG_FIL="/var/log/shell-script/$0.log"
+LOG_FILE="/var/log/shell-script/$0.log"
 
 USERID=$(id -u)
 
