@@ -11,3 +11,7 @@ echo "Enter your name"
 read User_Name
 
 echo "Hi ! ${User_Name}"
+
+echo "enter password :"
+read -s Password
+echo "Hi! DOne"
