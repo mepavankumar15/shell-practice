@@ -30,10 +30,10 @@ for package in $@
 do
     dnf list installed $package &>>$LOG_FILE
     if [ $? -ne 0 ]; then
-        echo " $R $package not installed , $B installing now"
+        echo -e " $R $package not installed , $B installing now"
         dnf install $package -y &>>$LOG_FILE
-        VALIDATE $? "$G $package installation"
+        VALIDATE $? " $package installation"
     else
-        echo "$G $package is installed already , skipping"
+        echo -e "$G $package is installed already , skipping"
     fi
 done
