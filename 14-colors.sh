@@ -4,6 +4,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 B="\e[34m"
+N="\e[0m"
 
 echo -e "$R Hello world , Bitches"
 
@@ -20,9 +21,9 @@ fi
 
 VALIDATE() {
     if [ $1 -eq 0 ]; then
-        echo "$2 ... $G SUCCESS $Y" | tee -a $LOG_FILE
+        echo "$2 ... $G SUCCESS $N" | tee -a $LOG_FILE
     else 
-        echo "$2... $R FAILED $B" | tee -a $LOG_FILE
+        echo "$2... $R FAILED $N" | tee -a $LOG_FILE
     fi
 }
 
@@ -30,10 +31,10 @@ for package in $@
 do
     dnf list installed $package &>>$LOG_FILE
     if [ $? -ne 0 ]; then
-        echo -e " $R $package not installed , $B installing now"
+        echo -e " $R $package not installed $N , $B installing now"
         dnf install $package -y &>>$LOG_FILE
         VALIDATE $? " $package installation"
     else
-        echo -e "$G $package is installed already , skipping"
+        echo -e "$G $package is installed already $N , $B skipping"
     fi
 done
