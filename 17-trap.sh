@@ -29,7 +29,7 @@ for package in $@
 do
     dnf list installed $package &>>$LOG_FILE
     if [ $? -ne 0 ]; then
-        echo -e " $R $package not installed $N , $B installing now"
+        echo -e " $R $package not installed $N , $B installing now $N"
         dnf install $package -y &>>$LOG_FILE
         VALIDATE $? " $package installation"
     else
